@@ -10,6 +10,8 @@ class MyHomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Lead Management App'),
+        backgroundColor: Colors.red,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.only(bottomLeft: Radius.circular(16),bottomRight: Radius.circular(16))),
       ),
       body: Center(
         child: Obx(() => controller.getWidgets()[controller.selectedIndex.value]),
