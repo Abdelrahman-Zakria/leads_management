@@ -12,25 +12,40 @@ class MyHomePage extends StatelessWidget {
         title: Text('Lead Management App'),
       ),
       body: Center(
-        child: Obx(() => controller.getWidgets()[controller.selectedIndex]),
+        child: Obx(() => controller.getWidgets()[controller.selectedIndex.value]),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        items:  <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.dashboard,color: controller.selectedIndex == 0 ? Colors.red : Colors.black),
-            label: 'Dashboard',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.list,color: controller.selectedIndex == 1 ? Colors.red : Colors.black),
-            label: 'All Leads',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.settings,color: controller.selectedIndex == 2 ? Colors.red : Colors.black),
-            label: 'Settings',
-          ),
-        ],
-        currentIndex: controller.selectedIndex,
-        onTap: (index) => controller.selectedIndex = index,
+      bottomNavigationBar: GetBuilder<HomeController>(
+        builder: (homeController) {
+          return BottomNavigationBar(
+            selectedItemColor: Colors.red,
+            selectedLabelStyle: TextStyle(color: Colors.red),
+            items: <BottomNavigationBarItem>[
+              BottomNavigationBarItem(
+                icon: Icon(Icons.dashboard,
+                    color: homeController.selectedIndex == 0
+                        ? Colors.red
+                        : Colors.black),
+                label: 'Dashboard',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.list,
+                    color: homeController.selectedIndex == 1
+                        ? Colors.red
+                        : Colors.black),
+                label: 'All Leads',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.settings,
+                    color: homeController.selectedIndex == 2
+                        ? Colors.red
+                        : Colors.black),
+                label: 'Settings',
+              ),
+            ],
+            currentIndex: homeController.selectedIndex.value,
+            onTap: (index) => homeController.changeSelectedIndex(index),
+          );
+        },
       ),
     );
   }

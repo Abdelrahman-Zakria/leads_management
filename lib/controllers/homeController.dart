@@ -6,10 +6,16 @@ import '../view/dashboard.dart';
 import '../view/settings_screen.dart';
 
 class HomeController extends GetxController {
-  var _selectedIndex = 0.obs;
+  var selectedIndex = 0.obs;
 
-  int get selectedIndex => _selectedIndex.value;
-  set selectedIndex(int index) => _selectedIndex.value = index;
+
+  set _selectedIndex(int index) => selectedIndex.value = index;
+
+  changeSelectedIndex(int index){
+    selectedIndex.value = index;
+    update();
+    notifyChildrens();
+  }
 
   List<Widget> getWidgets() {
     return [
