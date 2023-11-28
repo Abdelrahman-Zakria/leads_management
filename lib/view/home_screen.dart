@@ -21,11 +21,11 @@ class MyHomePage extends StatelessWidget {
             label: 'Dashboard',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.list),
+            icon: Icon(Icons.list,color: controller.selectedIndex == 1 ? Colors.red : Colors.black),
             label: 'All Leads',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
+            icon: Icon(Icons.settings,color: controller.selectedIndex == 2 ? Colors.red : Colors.black),
             label: 'Settings',
           ),
         ],
