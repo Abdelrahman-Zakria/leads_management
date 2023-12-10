@@ -24,11 +24,11 @@ class LeadDetails extends StatelessWidget {
         child: Column(
           children: [
             SizedBox(height: 20,),
-            _buildInfoBox(size, "Full Name", data!['name']),
+            _buildInfoBox(size, "Full Name", data!['name'],Icons.person),
             Stack(
               alignment: Alignment.centerRight,
               children: [
-                _buildInfoBox(size, "Phone number", data!['phone']),
+                _buildInfoBox(size, "Phone number", data!['phone'],Icons.dialpad),
                 IconButton(onPressed: (){}, icon: Icon(Icons.call))
               ],
             ),
@@ -36,12 +36,12 @@ class LeadDetails extends StatelessWidget {
             Stack(
               alignment: Alignment.centerRight,
               children: [
-                _buildInfoBox(size, "Email", data!['email']),
+                _buildInfoBox(size, "Email", data!['email'],Icons.email_outlined),
                 IconButton(onPressed: (){}, icon: Icon(Icons.message_outlined))
               ],
             ),
 
-            _buildInfoBox(size, "Status", data!['status']),
+            _buildInfoBox(size, "Status", data!['status'],Icons.show_chart),
 
             Expanded(child: SizedBox()),
             DefaultButton(txt: "Feedback", function: (){}, bg_color: UiConfig.colorSec, txt_color: Colors.white),
@@ -52,7 +52,7 @@ class LeadDetails extends StatelessWidget {
     );
   }
 
-  Widget _buildInfoBox(Size size,title,value){
+  Widget _buildInfoBox(Size size,title,value,icon){
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 15.0),
       child: Container(
@@ -63,19 +63,30 @@ class LeadDetails extends StatelessWidget {
           color: Colors.grey[200],
           borderRadius: BorderRadius.circular(16),
         ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.start,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Text(title,style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 22,
-            ),),
-            SizedBox(height: 10,),
-            Text(value,style: TextStyle(
-              fontWeight: FontWeight.w400,
-              fontSize: 20,
-            ),),
+            Icon(icon),
+            SizedBox(width: 16,),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(title,style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 22,
+                ),),
+                SizedBox(height: 10,),
+                Container(
+                  width: size.width/1.5,
+                  child: Text(value,style: TextStyle(
+                    fontWeight: FontWeight.w400,
+                    overflow: TextOverflow.ellipsis,
+                    fontSize: 20,
+                  ),),
+                ),
+              ],
+            ),
           ],
         ),
       ),
