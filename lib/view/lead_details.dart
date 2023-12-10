@@ -1,0 +1,84 @@
+import 'package:flutter/material.dart';
+import 'package:leads_management/config.dart';
+import 'package:leads_management/reuseableWidgets/customButton.dart';
+
+class LeadDetails extends StatelessWidget {
+
+  Map? data;
+
+  LeadDetails({required this.data});
+
+  @override
+  Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Lead Details'),
+        backgroundColor: UiConfig.colorSec,
+        centerTitle: true,
+        //leading: SizedBox.shrink(),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.only(bottomLeft: Radius.circular(16),bottomRight: Radius.circular(16))),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          children: [
+            SizedBox(height: 20,),
+            _buildInfoBox(size, "Full Name", data!['name']),
+            Stack(
+              alignment: Alignment.centerRight,
+              children: [
+                _buildInfoBox(size, "Phone number", data!['phone']),
+                IconButton(onPressed: (){}, icon: Icon(Icons.call))
+              ],
+            ),
+
+            Stack(
+              alignment: Alignment.centerRight,
+              children: [
+                _buildInfoBox(size, "Email", data!['email']),
+                IconButton(onPressed: (){}, icon: Icon(Icons.message_outlined))
+              ],
+            ),
+
+            _buildInfoBox(size, "Status", data!['status']),
+
+            Expanded(child: SizedBox()),
+            DefaultButton(txt: "Feedback", function: (){}, bg_color: UiConfig.colorSec, txt_color: Colors.white),
+            SizedBox(height: 20,),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildInfoBox(Size size,title,value){
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 10.0),
+      child: Container(
+        width: size.width,
+        height: 80,
+        padding: EdgeInsets.all(10),
+        decoration: BoxDecoration(
+          color: Colors.grey[200],
+          borderRadius: BorderRadius.circular(16),
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(title,style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 22,
+            ),),
+            SizedBox(height: 10,),
+            Text(value,style: TextStyle(
+              fontWeight: FontWeight.w400,
+              fontSize: 20,
+            ),),
+          ],
+        ),
+      ),
+    );
+  }
+}

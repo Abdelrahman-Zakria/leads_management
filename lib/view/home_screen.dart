@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:leads_management/config.dart';
 import 'package:leads_management/controllers/homeController.dart';
 
 class MyHomePage extends StatelessWidget {
@@ -9,8 +10,10 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Lead Management App'),
-        backgroundColor: Colors.red,
+        title: Text('Leads Management'),
+        backgroundColor: UiConfig.colorSec,
+        centerTitle: true,
+        leading: SizedBox.shrink(),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.only(bottomLeft: Radius.circular(16),bottomRight: Radius.circular(16))),
       ),
       body: Center(
@@ -19,27 +22,27 @@ class MyHomePage extends StatelessWidget {
       bottomNavigationBar: GetBuilder<HomeController>(
         builder: (homeController) {
           return BottomNavigationBar(
-            selectedItemColor: Colors.red,
-            selectedLabelStyle: TextStyle(color: Colors.red),
+            selectedItemColor: UiConfig.colorSec,
+            selectedLabelStyle: TextStyle(color: UiConfig.colorSec,),
             items: <BottomNavigationBarItem>[
               BottomNavigationBarItem(
                 icon: Icon(Icons.dashboard,
                     color: homeController.selectedIndex == 0
-                        ? Colors.red
+                        ? UiConfig.colorSec
                         : Colors.black),
                 label: 'Dashboard',
               ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.list,
                     color: homeController.selectedIndex == 1
-                        ? Colors.red
+                        ? UiConfig.colorSec
                         : Colors.black),
                 label: 'All Leads',
               ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.settings,
                     color: homeController.selectedIndex == 2
-                        ? Colors.red
+                        ? UiConfig.colorSec
                         : Colors.black),
                 label: 'Settings',
               ),
