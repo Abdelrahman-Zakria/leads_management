@@ -54,7 +54,7 @@ class LeadDetails extends StatelessWidget {
 
   Widget _buildInfoBox(Size size,title,value){
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 10.0),
+      padding: const EdgeInsets.symmetric(vertical: 15.0),
       child: Container(
         width: size.width,
         height: 80,

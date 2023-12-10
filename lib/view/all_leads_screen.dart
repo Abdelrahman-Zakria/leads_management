@@ -24,57 +24,63 @@ class AllLeadsScreen extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Container(
-                      width: size.width / 4,
-                        height: 30,
-                        decoration: BoxDecoration(
-                          color: UiConfig.colorSec,
-                          borderRadius: BorderRadius.circular(16),
-
-                        ),
-                        child: Center(
-                          child: Text("Today",style: TextStyle(
-                            fontSize: 20,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
+                    GestureDetector(
+                      child: Container(
+                        width: size.width / 4,
+                          height: 30,
+                          decoration: BoxDecoration(
+                            color: UiConfig.colorSec,
+                            borderRadius: BorderRadius.circular(16),
 
                           ),
-                          textAlign: TextAlign.center,),
-                        )),
-                    Container(
-                        width: size.width / 3,
-                        height: 30,
-                        decoration: BoxDecoration(
-                          color: UiConfig.colorSec,
-                          borderRadius: BorderRadius.circular(16),
+                          child: Center(
+                            child: Text("Today",style: TextStyle(
+                              fontSize: 20,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
 
-                        ),
-                        child: Center(
-                          child: Text("This week",style: TextStyle(
-                            fontSize: 20,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-
-                          ),
+                            ),
                             textAlign: TextAlign.center,),
-                        )),
-                    Container(
-                        width: size.width / 3,
-                        height: 30,
-                        decoration: BoxDecoration(
-                          color: UiConfig.colorSec,
-                          borderRadius: BorderRadius.circular(16),
-
-                        ),
-                        child: Center(
-                          child: Text("This month",style: TextStyle(
-                            fontSize: 20,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
+                          )),
+                    ),
+                    GestureDetector(
+                      child: Container(
+                          width: size.width / 3,
+                          height: 30,
+                          decoration: BoxDecoration(
+                            color: UiConfig.colorSec,
+                            borderRadius: BorderRadius.circular(16),
 
                           ),
-                            textAlign: TextAlign.center,),
-                        )),
+                          child: Center(
+                            child: Text("This week",style: TextStyle(
+                              fontSize: 20,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+
+                            ),
+                              textAlign: TextAlign.center,),
+                          )),
+                    ),
+                    GestureDetector(
+                      child: Container(
+                          width: size.width / 3,
+                          height: 30,
+                          decoration: BoxDecoration(
+                            color: UiConfig.colorSec,
+                            borderRadius: BorderRadius.circular(16),
+
+                          ),
+                          child: Center(
+                            child: Text("This month",style: TextStyle(
+                              fontSize: 20,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+
+                            ),
+                              textAlign: TextAlign.center,),
+                          )),
+                    ),
                   ],
                 ),
               ),
