@@ -38,7 +38,6 @@ class AllLeadsScreen extends StatelessWidget {
                               fontSize: 20,
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
-
                             ),
                             textAlign: TextAlign.center,),
                           )),
@@ -50,7 +49,6 @@ class AllLeadsScreen extends StatelessWidget {
                           decoration: BoxDecoration(
                             color: UiConfig.colorSec,
                             borderRadius: BorderRadius.circular(16),
-
                           ),
                           child: Center(
                             child: Text("This week",style: TextStyle(
@@ -121,8 +119,8 @@ class AllLeadsScreen extends StatelessWidget {
                               ),
                               Row(
                                 children: [
-                                  IconButton(onPressed: (){}, icon: Icon(Icons.call)),
-                                  IconButton(onPressed: (){}, icon: Icon(Icons.message_outlined))
+                                  IconButton(onPressed: (){}, icon: Icon(Icons.call,color: UiConfig.colorSec,)),
+                                  IconButton(onPressed: (){}, icon: Icon(Icons.message_outlined,color: UiConfig.colorSec,))
                                 ],
                               ),
                             ],
